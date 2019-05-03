@@ -1,0 +1,818 @@
+body {
+    background: url('./../img/roulette/roulettebg.svg') no-repeat;
+    background-size: cover;
+}
+
+.maincontentholder {
+    padding-top: 2%;
+    height: 150vh;
+    color: white;
+}
+
+.roulettepagetitle {
+    text-align: center;
+    font-family: 'Fjalla One';
+    text-shadow: 2px 2px 2px rgba(27, 27, 27, 1);
+}
+
+.intro {
+    display: block;
+    text-align: center;
+    font-family: 'Fjalla One';
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(27, 27, 27, 1);
+    margin: 0 auto;
+}
+
+#maingrid {
+    display: grid;
+    width: 100%;
+    height: 70em;
+    grid-template-areas: "leftresults roulettecard rightresults"
+                       "p1bets roulettecard p2bets"
+                       "p1bets wheelgame p2bets";
+    grid-template-rows: 16% 29% 55%;
+    grid-template-columns: 1fr 30% 1fr;
+}
+
+.resultarea.leftresults {
+    grid-area: leftresults;
+}
+
+.resultarea.rightresults {
+    grid-area: rightresults;
+}
+
+.resultarea {
+    font-family: 'Fjalla One';
+    color: black;
+    margin: 0em 6em 0em 6em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 1%;
+    text-align: center;
+}
+
+.scorecontent {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    min-width: 14em;
+    color: black;
+    background-color: white;
+    margin-top: -3em;
+    padding: 0.5em 2em 0em 2em;
+    border: 2px solid black;
+    border-radius: 1%;
+    box-shadow: 1px 1px 2px rgba(27, 27, 27, 0.6);
+}
+
+.playertitle {
+    font-family: 'Fjalla One';
+    color: rgba(36, 47, 96, 1);
+    text-align: center;
+    line-height: 0.5;
+}
+
+.chipcount {
+    font-family: 'Fjalla One';
+    line-height: 1;
+    text-align: center;
+}
+
+#roulettecard {
+    grid-area: roulettecard;
+    color: white;
+}
+
+#roulettecard h1 {
+    font-family: 'Fjalla One';
+    text-shadow: 2px 2px 2px rgba(27, 27, 27, 1);
+}
+
+#roulettewheelholder {
+    position: relative;
+    height: 420px;
+    width: 420px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+#roulettewheel {
+    position: absolute;
+    border-radius: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#ballholder {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#rouletteball {
+    position: absolute;
+    left: 45%;
+    top: 16.5%;
+    max-height: 5%;
+    max-width: 5%;
+    border-radius:50%;
+}
+
+.p1bets {
+    grid-area: p1bets;
+    margin: 0 2em 0 1.5em;
+}
+
+.p2bets {
+    grid-area: p2bets;
+    margin: 0 1.5em 0 2em;
+}
+
+.formcontent {
+    color: black;
+    background-color: rgba(249, 240, 230, 1);
+    border: 2px solid black;
+    border-radius: 1%;
+    box-shadow: 1px 1px 2px rgba(27, 27, 27, 0.6);
+    text-align: center;
+    font-weight: bold;
+}
+
+.listblock {
+    display: block;
+    position: relative;
+    margin: 0 auto 0 40%;
+    width: fit-content;
+}
+
+.listblock::before {
+    content: "Payouts:";
+    font-size: 0.9em;
+    font-weight: bolder;
+    display: block;
+    position: absolute;
+    right: 105%;
+    top: 30%;
+}
+
+.payout {
+    display: block;
+    font-size: 0.7em;
+    font-style: oblique;
+    text-align: left;
+}
+
+
+#bettinggrid1, #bettinggrid2 {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.betfield {
+    margin: 0 auto;
+    padding-left: 1em;
+    text-align: left;
+    display: block;
+    width: 14em;
+}
+
+.betoption {
+    display: inline-block;
+    width: 3.6em;
+}
+
+input[type=number]{
+    width: 6em;
+    margin-bottom: 0.5em;
+    margin-right: 2.5em;
+}
+
+input[type=submit]{
+    font-family: 'Fjalla One';
+    font-weight: bold;
+    font-size: 2em;
+    background-color: hsl(48, 80%, 65%);
+    color: #161515;
+    padding: 0.2em;
+    border: 3px solid hsl(31, 100%, 9%);
+    box-shadow: 1px 1px 2px rgba(27, 27, 27, 0.6);
+    cursor: pointer;
+    border-radius: 10%;
+    margin-bottom: -1em;
+}
+
+.wheelgame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: wheelgame;
+    text-align: center;
+    font-family: 'Fjalla One';
+    font-weight: bold;
+    margin-top: -3em;
+}
+
+.wheelgame p {
+    font-size: 1.4em;
+}
+
+.wheelgame p span {
+    font-size: 2.2em;
+    line-height: 0.7;
+}
+
+#resetbutton {
+    font-family: 'Fjalla One';
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: hsl(32, 100%, 31%);
+    color: black;
+    padding: 2px 6px 2px 6px;
+    border: 2px solid hsl(31, 100%, 9%);
+    box-shadow: 1px 1px 2px rgba(27, 27, 27, 0.6);
+    cursor: pointer;
+}
+
+label {
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'Verdana';
+}
+
+label.betresult {
+    position: relative;
+    margin-left: -2.5em;
+}
+
+[tooltip]{
+    margin: 10px;
+    position:relative;
+}
+
+[tooltip]::before {
+    content: "";
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    border-width: 4px 6px 0 6px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.7) transparent transparent transparent;
+    z-index: 100;
+    left:100%;
+    top:50%;
+    margin-left:1px;
+    opacity: 0;
+}
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    color: #fff;
+    padding: 4px 2px;
+    font-size: 12px;
+    min-width: 80px;
+    border-radius: 5px;
+    pointer-events: none;
+    left:100%;
+    top:50%;
+    margin-left: 0.25em;
+    transform: translateX(0%) translateY(-50%);
+    opacity: 0;
+}
+
+[tooltip]:hover::after, [tooltip]:hover::before {
+    opacity:1
+}
+
+.Black {
+    color: black;
+}
+
+.Green {
+    color: green;
+}
+
+.Red {
+    color: red;
+}
+
+.transparent {
+    opacity: 0;
+    color: rgba(0, 0, 0, 0);
+}
+
+/*********************************************/
+/**************** Animations *****************/
+/*********************************************/
+
+/* Set variables for each possible spinned number
+   (used later on in keyframe animations */
+
+.wheel0 {
+    --wheel: rotate(879deg);
+}
+.ball0 {
+    --ballstart: rotate(300deg);
+    --ballstop: rotate(-201deg);
+}
+.wheel1 {
+    --wheel: rotate(938deg);
+}
+.ball1 {
+    --ballstart: rotate(287deg);
+    --ballstop: rotate(-279deg);
+}
+.wheel2 {
+    --wheel: rotate(880deg);
+}
+.ball2 {
+    --ballstart: rotate(-70deg);
+    --ballstop: rotate(-502deg);
+}
+.wheel3 {
+    --wheel: rotate(849deg);
+}
+.ball3 {
+    --ballstart: rotate(427deg);
+    --ballstop: rotate(-251deg);
+}
+.wheel4 {
+    --wheel: rotate(912deg);
+}
+.ball4 {
+    --ballstart: rotate(122deg);
+    --ballstop: rotate(-489deg);
+}
+.wheel5 {
+    --wheel: rotate(694deg);
+}
+.ball5 {
+    --ballstart: rotate(172deg);
+    --ballstop: rotate(-201deg);
+}
+.wheel6 {
+    --wheel: rotate(1007deg);
+}
+.ball6 {
+    --ballstart: rotate(262deg);
+    --ballstop: rotate(-336deg);
+}
+.wheel7 {
+    --wheel: rotate(674deg);
+}
+.ball7{
+    --ballstart: rotate(20deg);
+    --ballstop: rotate(-465deg);
+}
+.wheel8 {
+    --wheel: rotate(1207deg);
+}
+.ball8{
+    --ballstart: rotate(322deg);
+    --ballstop: rotate(-438deg);
+}
+.wheel9 {
+    --wheel: rotate(1107deg);
+}
+.ball9 {
+    --ballstart: rotate(292deg);
+    --ballstop: rotate(-431deg);
+}
+.wheel10 {
+    --wheel: rotate(724deg);
+}
+.ball10 {
+    --ballstart: rotate(30deg);
+    --ballstop: rotate(-541deg);
+}
+.wheel11 {
+    --wheel: rotate(744deg);
+}
+.ball11 {
+    --ballstart: rotate(60deg);
+    --ballstop: rotate(-560deg);
+}
+.wheel12 {
+    --wheel: rotate(674deg);
+}
+.ball12 {
+    --ballstart: rotate(20deg);
+    --ballstop: rotate(-445deg);
+}
+.wheel13 {
+    --wheel: rotate(578deg);
+}
+.ball13 {
+    --ballstart: rotate(47deg);
+    --ballstop: rotate(-386deg);
+}
+.wheel14 {
+    --wheel: rotate(938deg);
+}
+.ball14 {
+    --ballstart: rotate(287deg);
+    --ballstop: rotate(-259deg);
+}
+.wheel15 {
+    --wheel: rotate(888deg);
+}
+.ball15 {
+    --ballstart: rotate(17deg);
+    --ballstop: rotate(-532deg);
+}
+.wheel16 {
+    --wheel: rotate(694deg);
+}
+.ball16 {
+    --ballstart: rotate(220deg);
+    --ballstop: rotate(-182deg);
+}
+.wheel17 {
+    --wheel: rotate(818deg);
+}
+.ball17 {
+    --ballstart: rotate(437deg);
+    --ballstop: rotate(-184deg);
+}
+.wheel18 {
+    --wheel: rotate(959deg);
+}
+.ball18 {
+    --ballstart: rotate(80deg);
+    --ballstop: rotate(-559deg);
+}
+.wheel19 {
+    --wheel: rotate(688deg);
+}
+.ball19 {
+    --ballstart: rotate(-10deg);
+    --ballstop: rotate(-363deg);
+}
+.wheel20 {
+    --wheel: rotate(879deg);
+}
+.ball20 {
+    --ballstart: rotate(300deg);
+    --ballstop: rotate(-328deg);
+}
+.wheel21 {
+    --wheel: rotate(754deg);
+}
+.ball21 {
+    --ballstart: rotate(80deg);
+    --ballstop: rotate(-637deg);
+}
+.wheel22 {
+    --wheel: rotate(899deg);
+}
+.ball22 {
+    --ballstart: rotate(300deg);
+    --ballstop: rotate(-269deg);
+}
+.wheel23 {
+    --wheel: rotate(724deg);
+}
+.ball23 {
+    --ballstart: rotate(30deg);
+    --ballstop: rotate(-551deg);
+}
+.wheel24 {
+    --wheel: rotate(720deg);
+}
+.ball24 {
+    --ballstart: rotate(0deg);
+    --ballstop: rotate(-525deg);
+}
+.wheel25 {
+    --wheel: rotate(1007deg);
+}
+.ball25 {
+    --ballstart: rotate(262deg);
+    --ballstop: rotate(-365deg);
+}
+.wheel26 {
+    --wheel: rotate(768deg);
+}
+.ball26 {
+    --ballstart: rotate(317deg);
+    --ballstop: rotate(-322deg);
+}
+.wheel27 {
+    --wheel: rotate(794deg);
+}
+.ball27 {
+    --ballstart: rotate(90deg);
+    --ballstop: rotate(-539deg);
+}
+.wheel28 {
+    --wheel: rotate(684deg);
+}
+.ball28 {
+    --ballstart: rotate(20deg);
+    --ballstop: rotate(-445deg);
+}
+.wheel29 {
+    --wheel: rotate(737deg);
+}
+.ball29 {
+    --ballstart: rotate(122deg);
+    --ballstop: rotate(-411deg);
+}
+.wheel30 {
+    --wheel: rotate(724deg);
+}
+.ball30 {
+    --ballstart: rotate(30deg);
+    --ballstop: rotate(-570deg);
+}
+.wheel31 {
+    --wheel: rotate(943deg);
+}
+.ball31 {
+    --ballstart: rotate(7deg);
+    --ballstop: rotate(-605deg);
+}
+.wheel32 {
+    --wheel: rotate(1019deg);
+}
+.ball32 {
+    --ballstart: rotate(199deg);
+    --ballstop: rotate(-411deg);
+}
+.wheel33 {
+    --wheel: rotate(694deg);
+}
+.ball33 {
+    --ballstart: rotate(220deg);
+    --ballstop: rotate(-172deg);
+}
+.wheel34 {
+    --wheel: rotate(698deg);
+}
+.ball34 {
+    --ballstart: rotate(267deg);
+    --ballstop: rotate(-295deg);
+}
+.wheel35 {
+    --wheel: rotate(829deg);
+}
+.ball35 {
+    --ballstart: rotate(427deg);
+    --ballstop: rotate(-281deg);
+}
+.wheel36 {
+    --wheel: rotate(788deg);
+}
+.ball36 {
+    --ballstart: rotate(117deg);
+    --ballstop: rotate(-526deg);
+}
+
+/***** TESTING *****
+
+.wheel24 {
+    --wheel: rotate(1019deg);
+}
+.ball24 {
+    --ballstart: rotate(199deg);
+    --ballstop: rotate(-411deg);
+}
+
+
+/* Core Animation properties with vars defined above */
+
+#roulettewheel {
+    -webkit-animation:spin 3.5s ease-out 1;
+    -moz-animation:spin 3.5s ease-out 1;
+    animation:spin 3.5s ease-out 1 forwards;
+}
+
+#ballholder {
+    animation:orbit 3.5s ease-out 1 forwards;
+}
+
+@keyframes spin { 100% { -webkit-transform: var(--wheel); } }
+@-moz-keyframes spin { 100% { -moz-transform: var(--wheel); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: var(--wheel); } }
+@-ms-keyframes spin { 100% { -webkit-transform: var(--wheel); } }
+@-o-keyframes spin { 100% { -webkit-transform: var(--wheel); } }
+
+@keyframes orbit {
+    from { -webkit-transform: var(--ballstart); }
+    to { -webkit-transform: var(--ballstop); }
+}
+@-moz-keyframes orbit {
+    from { -webkit-transform: var(--ballstart); }
+    to { -webkit-transform: var(--ballstop); }
+}
+@-webkit-keyframes orbit {
+    from { -webkit-transform: var(--ballstart); }
+    to { -webkit-transform: var(--ballstop); }
+}
+@-ms-keyframes orbit {
+    from { -webkit-transform: var(--ballstart); }
+    to { -webkit-transform: var(--ballstop); }
+}
+@-o-keyframes orbit {
+    from { -webkit-transform: var(--ballstart); }
+    to { -webkit-transform: var(--ballstop); }
+}
+
+.fadeout {
+    -webkit-animation: fadeout 3.5s ease-in 1 forwards;
+    -moz-animation: fadeout 3.5s ease-in 1 forwards;
+    -ms-animation: fadeout 3.5s ease-in 1 forwards;
+    -o-animation: fadeout 3.5s ease-in 1 forwards;
+    animation: fadeout 3.5s ease-in 1 forwards;
+}
+
+@keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+@-moz-keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+@-o-keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+
+
+.fadein {
+    -webkit-animation: fadein 4s ease-in 1;
+    -moz-animation: fadein 4s ease-in 1;
+    -ms-animation: fadein 4s ease-in 1;
+    -o-animation: fadein 4s ease-in 1;
+    animation: fadein 4s ease-in 1;
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+@-ms-keyframes fadein {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.fadeinlate {
+    -webkit-animation: fadeinlate 4.5s ease-in 1;
+    -moz-animation: fadeinlate 4.5s ease-in 1;
+    -ms-animation: fadeinlate 4.5s ease-in 1;
+    -o-animation: fadeinlate 4.5s ease-in 1;
+    animation: fadeinlate 4.5s ease-in 1;
+}
+
+@keyframes fadeinlate {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeinlate {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadeinlate {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@-ms-keyframes fadeinlate {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeinlate {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.fadeinlater {
+    -webkit-animation: fadeinlater 5s ease-in 1;
+    -moz-animation: fadeinlater 5s ease-in 1;
+    -ms-animation: fadeinlater 5s ease-in 1;
+    -o-animation: fadeinlater 5s ease-in 1;
+    animation: fadeinlater 5s ease-in 1;
+}
+
+@keyframes fadeinlater {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeinlater {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadeinlater {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@-ms-keyframes fadeinlater {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeinlater {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    95% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+
+/* MOBILE/PHONE VIEW */
+
+@media screen
+and (max-device-width: 700px) and (orientation: portrait) {
+
+
+    .maincontentholder {
+        margin: 0 auto;
+        height: 110vh;
+    }
+
+    .intro {
+        margin-left: 10%;
+    }
+
+    #maingrid {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        grid-template-areas:
+            "roulettecard wheelgame"
+            "leftresults rightresults"
+            "p1bets p2bets"
+            "p1bets p2bets";
+        grid-template-rows: 30% 10% 30% 30%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .wheelgame {
+        padding-top: 8em;
+        padding-bottom: 6em;
+        flex-direction: column-reverse;
+    }
+
+}
+
