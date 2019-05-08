@@ -3,9 +3,6 @@
 $pageTitle = "2 Player Roulette Game";
 require __DIR__ . '/init.php';
 require __DIR__ . '/RouletteControl.php';
-
-
-
 ?>
 
 <head>
@@ -24,7 +21,7 @@ require __DIR__ . '/RouletteControl.php';
 <div class='maincontentholder'>
     <div class="intro">
         <h1 class='roulettepagetitle'><?= htmlentities($pageTitle) ?></h1>
-        <p class='introtext'>Each player starts with 1000 chips.
+        <p class='introtext'>Each player starts with 1000 chips. <?= $method; ?>
             Fill in the betting form below to bet any number of chips, however you want.</p>
     </div>
 

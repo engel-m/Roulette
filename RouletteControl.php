@@ -5,8 +5,7 @@ use Roulette\Wheel;
 
 require __DIR__ . '/init.php';
 
-$method = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING);
-
+$method = $_SERVER['REQUEST_METHOD'];
 //Create Roulette Wheel Object
 $wheel = new Wheel();
 
@@ -47,7 +46,7 @@ if (!isset($e)) {
 
 // Calculate scores/payouts for each player
 if ($method == 'POST' && !isset($e) && !isset($_POST['names'])) {
-    $game->calcResults();
+    $game->calcResults();    
 }
 
 
